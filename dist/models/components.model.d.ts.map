@@ -1,0 +1,1 @@
+{"version":3,"file":"components.model.d.ts","sourceRoot":"","sources":["../../src/models/components.model.ts"],"names":[],"mappings":"AAGA,KAAK,SAAS,GAAG;IACb,IAAI,EAAE,MAAM,CAAC;IACb,YAAY,EAAE,MAAM,EAAE,CAAC;IACvB,KAAK,EAAE;QACH,IAAI,EAAE,MAAM,CAAC;QACb,OAAO,EAAE,MAAM,CAAA;KAClB,EAAE,CAAA;CACN,CAAA;AAKD,eAAO,MAAM,YAAY,GAAU,MAAM,MAAM,KAAG,OAAO,CAAC,SAAS,CAGlE,CAAA"}

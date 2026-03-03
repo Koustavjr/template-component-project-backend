@@ -1,0 +1,71 @@
+{
+    "glass-login": {
+        "name": "glass-login",
+        "dependencies": [
+            "lucide-react",
+            "react-hook-form",
+            "zod",
+            "@hookform/resolvers"
+        ],
+        "files": [
+            {
+                "path": "components/auth/glass-login.tsx",
+                "content": "import React from 'react';\nimport { useForm } from 'react-hook-form';\nimport { zodResolver } from '@hookform/resolvers/zod';\nimport { loginSchema } from './login-schema';\n\nexport const GlassLogin = () => {\n  const { register, handleSubmit } = useForm({ resolver: zodResolver(loginSchema) });\n  return (\n    <div className=\"backdrop-blur-md bg-white/30 p-8 rounded-2xl border border-white/20\">\n      <h2 className=\"text-2xl font-bold mb-4\">Welcome Back</h2>\n      <form onSubmit={handleSubmit((data) => console.log(data))}>\n        <input {...register('email')} className=\"block w-full mb-2 p-2 rounded\" placeholder=\"Email\" />\n        <button type=\"submit\" className=\"w-full bg-blue-600 text-white p-2 rounded\">Login</button>\n      </form>\n    </div>\n  );\n};"
+            },
+            {
+                "path": "components/auth/login-schema.ts",
+                "content": "import { z } from 'zod';\nexport const loginSchema = z.object({\n  email: z.string().email(),\n  password: z.string().min(8)\n});"
+            }
+        ]
+    },
+    "navbar-user": {
+        "name": "navbar-user",
+        "dependencies": [
+            "lucide-react",
+            "framer-motion"
+        ],
+        "files": [
+            {
+                "path": "components/layout/navbar.tsx",
+                "content": "import { Menu, User, Bell } from 'lucide-react';\n\nexport const Navbar = () => (\n  <nav className=\"flex items-center justify-between p-4 bg-gray-900 text-white\">\n    <div className=\"font-bold text-xl\">DevDocs</div>\n    <div className=\"flex gap-4\">\n      <Bell size={20} />\n      <User size={20} />\n      <Menu size={20} />\n    </div>\n  </nav>\n);"
+            }
+        ]
+    },
+    "hero-section": {
+        "name": "hero-section",
+        "dependencies": [
+            "framer-motion"
+        ],
+        "files": [
+            {
+                "path": "components/sections/hero.tsx",
+                "content": "import { motion } from 'framer-motion';\n\nexport const Hero = () => (\n  <section className=\"py-20 text-center bg-gradient-to-b from-blue-50 to-white\">\n    <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} className=\"text-5xl font-extrabold\">\n      Build Faster with Chaicode\n    </motion.h1>\n    <p className=\"mt-4 text-gray-600\">The ultimate CLI for modern backend developers.</p>\n  </section>\n);"
+            }
+        ]
+    },
+    "data-table": {
+        "name": "data-table",
+        "dependencies": [
+            "@tanstack/react-table",
+            "lucide-react"
+        ],
+        "files": [
+            {
+                "path": "components/ui/data-table.tsx",
+                "content": "import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table';\n\nexport const DataTable = ({ data, columns }) => {\n  const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });\n  return (\n    <table className=\"min-w-full divide-y divide-gray-200\">\n      <thead>{/* Render Headers */}</thead>\n      <tbody>{/* Render Rows */}</tbody>\n    </table>\n  );\n};"
+            }
+        ]
+    },
+    "auth-status-card": {
+        "name": "auth-status-card",
+        "dependencies": [
+            "lucide-react"
+        ],
+        "files": [
+            {
+                "path": "components/auth/status-card.tsx",
+                "content": "import { ShieldCheck } from 'lucide-react';\n\nexport const AuthStatus = ({ isAuthed }) => (\n  <div className=\"flex items-center gap-2 p-3 rounded-lg bg-green-100 text-green-800\">\n    <ShieldCheck size={18} />\n    <span>{isAuthed ? 'Secure Connection Active' : 'Not Authenticated'}</span>\n  </div>\n);"
+            }
+        ]
+    }
+}
