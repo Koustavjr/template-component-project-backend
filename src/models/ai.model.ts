@@ -8,6 +8,8 @@ const openai = new OpenAI({
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
 });
 
+console.log(process.env.GEMINI_API_KEY);
+
 export const aiGeneratedComponent = async (prompt: string) => {
     try {
         const response = await openai.chat.completions.create({
@@ -20,15 +22,19 @@ export const aiGeneratedComponent = async (prompt: string) => {
         You are a component generator.
         Return JSON in this exact format:
         {
-          "name": "",
-          "dependencies": [],
-          "files": [
-            {
-              "path": "",
-              "content": ""
-            }
-          ]
-        }
+  "name": "login-form",
+  "dependencies": ["zod", "lucide-react"],
+  "files": [
+    {
+      "path": "components/auth/login-form.tsx",
+      "content": "export const LoginForm = () => { ... }"
+    },
+    {
+      "path": "components/auth/login-schema.ts",
+      "content": "import { z } from 'zod'; export const schema = ..."
+    }
+  ]
+}
         `
                 },
                 {
