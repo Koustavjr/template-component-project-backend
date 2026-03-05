@@ -8,7 +8,11 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc --watch",
-    "serve": "npm run build && npm start"
+    "serve": "npm run build && npm start",
+    "pm2": "pm2 start dist/index.js --output ./logs/access.log --error ./logs/error.log",
+    "pm2-script": "pm2 start ecosystem.config.cjs",
+    "pm2-stop": "pm2 stop registry-api",
+    "pm2-delete": "pm2 delete registry-api"
   },
   "repository": {
     "type": "git",
@@ -30,11 +34,14 @@
   "dependencies": {
     "@types/axios": "^0.9.36",
     "@types/fs-extra": "^11.0.4",
+    "@types/morgan": "^1.9.10",
     "@types/node-cron": "^3.0.11",
     "axios": "^1.13.6",
     "dotenv": "^17.3.1",
     "fs-extra": "^11.3.4",
+    "morgan": "^1.10.1",
     "node-cron": "^4.2.1",
-    "openai": "^6.25.0"
+    "openai": "^6.25.0",
+    "pm2": "^6.0.14"
   }
 }
