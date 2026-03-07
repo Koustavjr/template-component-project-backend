@@ -14,7 +14,7 @@ export const aiGeneratedComponentController = async (req: Request, res: Response
         return res.status(200).json(component);
     } catch (error) {
         return res.status(500).json({
-            message: "Internal Server Error"
+            message: "Internal Server Error in AI generation"
         })
     }
 }

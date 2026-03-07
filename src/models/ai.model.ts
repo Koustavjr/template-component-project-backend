@@ -8,7 +8,6 @@ const openai = new OpenAI({
     baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
 });
 
-console.log(process.env.GEMINI_API_KEY);
 
 export const aiGeneratedComponent = async (prompt: string) => {
     try {

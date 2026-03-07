@@ -10,6 +10,11 @@ export const getComponentController = async (req: Request, res: Response) => {
             })
         }
         const component = await getComponent(name);
+        if (!component) {
+            return res.status(404).json({
+                message: "Component not found"
+            })
+        }
         return res.status(200).json(component);
     } catch (error) {
         return res.status(500).json({

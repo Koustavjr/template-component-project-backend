@@ -38,7 +38,3 @@ app.get("/health", (req, res) => {
 });
 
 cluster.schedulingPolicy = cluster.SCHED_RR;
-
-app.listen(process.env.PORT || 5000, () => {
-    console.log("Server is running on port " + process.env.PORT || 5000);
-});
