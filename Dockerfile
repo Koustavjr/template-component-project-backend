@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build --omit=dev
+RUN npm run build --omit=dev    
 
 FROM node:alpine as runner
 WORKDIR /app
